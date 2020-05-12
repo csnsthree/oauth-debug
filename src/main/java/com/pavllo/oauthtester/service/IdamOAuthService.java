@@ -38,7 +38,7 @@ public class IdamOAuthService {
         OAuth20Service service = new ServiceBuilder(oAuthRequestForm.getClientId())
                 .apiSecret(oAuthRequestForm.getClientSecret())
                 .defaultScope(oAuthRequestForm.getScopes())
-                .callback("http://localhost:9091/callback")
+                .callback("https://oauth-debug.herokuapp.com/callback")
                 .build(GenericApi20.instance(oAuthRequestForm.getAuthorizeUrl(), oAuthRequestForm.getTokenUrl()));
         OAuth2AccessToken accessToken = service.getAccessToken(code);
         accessToken = service.refreshAccessToken(accessToken.getRefreshToken());
